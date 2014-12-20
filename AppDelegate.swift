@@ -21,8 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: screenFrame);
        // window?.backgroundColor = UIColor.redColor();
         loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil);
-        window?.rootViewController = loginViewController;
+        
+        var nav = UINavigationController(rootViewController: loginViewController);
+        window?.rootViewController = nav;
         window?.makeKeyAndVisible();
+        
+        UINavigationBar.appearance().barTintColor = UIColor(red: 255/255.0, green: 115/255.0, blue: 114/255.0, alpha: 1);
+        
+
+        
         return true
     }
 

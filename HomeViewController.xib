@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="CircleMe" customModuleProvider="target">
+            <connections>
+                <outlet property="friendsButton" destination="zw5-gk-QKq" id="i5p-CE-wj6"/>
+                <outlet property="hotButton" destination="14Z-Uy-m4K" id="W0T-LG-uam"/>
+                <outlet property="tableView" destination="Tdo-FT-ebn" id="OW3-Nx-rN3"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zw5-gk-QKq">
+                    <rect key="frame" x="0.0" y="64" width="160" height="30"/>
+                    <color key="backgroundColor" red="0.90196078430000004" green="0.086274509799999996" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="朋友">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="friendsButtonClicked:" destination="-1" eventType="touchUpInside" id="uoi-kG-8Ea"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14Z-Uy-m4K">
+                    <rect key="frame" x="160" y="64" width="160" height="30"/>
+                    <state key="normal" title="热点">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="hotButtonClicked:" destination="-1" eventType="touchUpInside" id="4gQ-0E-mY3"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Tdo-FT-ebn">
+                    <rect key="frame" x="0.0" y="94" width="320" height="474"/>
+                    <color key="backgroundColor" red="0.98431372549999996" green="0.67843137249999996" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="yu8-h9-gwi"/>
+                        <outlet property="delegate" destination="-1" id="aXm-pt-HSe"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Tdo-FT-ebn" secondAttribute="bottom" id="IHc-ko-FYr"/>
+                <constraint firstAttribute="trailing" secondItem="14Z-Uy-m4K" secondAttribute="trailing" id="MTj-uI-o09"/>
+                <constraint firstItem="Tdo-FT-ebn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QkQ-Au-l91"/>
+                <constraint firstItem="14Z-Uy-m4K" firstAttribute="leading" secondItem="zw5-gk-QKq" secondAttribute="trailing" id="S7W-II-Biq"/>
+                <constraint firstItem="zw5-gk-QKq" firstAttribute="baseline" secondItem="14Z-Uy-m4K" secondAttribute="baseline" id="a4k-mI-gat"/>
+                <constraint firstItem="zw5-gk-QKq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eIP-gi-qdF"/>
+                <constraint firstAttribute="trailing" secondItem="Tdo-FT-ebn" secondAttribute="trailing" id="fKO-MP-Kdv"/>
+                <constraint firstItem="Tdo-FT-ebn" firstAttribute="top" secondItem="14Z-Uy-m4K" secondAttribute="bottom" id="hqU-3s-Zhe"/>
+                <constraint firstItem="zw5-gk-QKq" firstAttribute="width" secondItem="14Z-Uy-m4K" secondAttribute="width" id="iRb-eD-HzL"/>
+                <constraint firstItem="zw5-gk-QKq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="k7B-M1-rBa"/>
+            </constraints>
+            <point key="canvasLocation" x="114" y="16"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

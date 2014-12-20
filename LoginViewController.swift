@@ -11,7 +11,7 @@ import UIKit
 class LoginViewController: UIViewController {
 
     @IBOutlet var circleView:UIView!
-    
+    @IBOutlet var loginButton:UIButton!
     
     override func viewDidLoad()
     {
@@ -22,6 +22,27 @@ class LoginViewController: UIViewController {
         circleView.layer.borderWidth = 2.0;
         circleView.backgroundColor = UIColor.clearColor();
         // Do any additional setup after loading the view.
+        loginButton.layer.borderColor = UIColor.whiteColor().CGColor;
+        loginButton.layer.borderWidth = 2.0;
+    }
+    
+    override func viewWillAppear(animated: Bool)
+   {
+        super.viewWillAppear(animated);
+      self.navigationController?.navigationBarHidden = true;
+    
+    }
+    
+    
+    @IBAction func loginButtonClicked(sender: AnyObject)
+    {
+        println("123");
+        
+        var homeVC = HomeViewController(nibName:"HomeViewController",bundle:nil);
+       // self.presentViewController(homeVC, animated: true, completion: nil);
+        self.navigationController?.pushViewController(homeVC, animated: true);
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

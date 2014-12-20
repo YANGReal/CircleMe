@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="CircleMe" customModuleProvider="target">
             <connections>
                 <outlet property="circleView" destination="IST-bf-6d2" id="x3n-KP-hoD"/>
+                <outlet property="loginButton" destination="mvw-bl-9eF" id="2ds-5K-l3t"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -27,10 +28,24 @@
                     </subviews>
                     <color key="backgroundColor" red="0.98431372549999996" green="0.67843137249999996" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvw-bl-9eF">
+                    <rect key="frame" x="29" y="585" width="317" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <state key="normal" title="LoginWithWechat">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="loginButtonClicked:" destination="-1" eventType="touchUpInside" id="w5F-RZ-ASt"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="0.45098039215686275" blue="0.44705882352941173" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="centerX" secondItem="IST-bf-6d2" secondAttribute="centerX" id="zuE-5k-eVy"/>
+                <constraint firstAttribute="bottom" secondItem="mvw-bl-9eF" secondAttribute="bottom" constant="52" id="2Cy-Fw-1bk"/>
+                <constraint firstAttribute="centerX" secondItem="IST-bf-6d2" secondAttribute="centerX" id="4Tj-Nm-LPz"/>
+                <constraint firstItem="mvw-bl-9eF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="29" id="nn2-pa-OQh"/>
+                <constraint firstAttribute="trailing" secondItem="mvw-bl-9eF" secondAttribute="trailing" constant="29" id="xkb-Vc-Qxs"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="139.5" y="154.5"/>
