@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var loginViewController:LoginViewController!
+    var homeViewController:HomeViewController!;
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -20,15 +21,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var screenFrame = UIScreen.mainScreen().bounds;
         window = UIWindow(frame: screenFrame);
        // window?.backgroundColor = UIColor.redColor();
-        loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil);
         
-        var nav = UINavigationController(rootViewController: loginViewController);
-        window?.rootViewController = nav;
         window?.makeKeyAndVisible();
         
         UINavigationBar.appearance().barTintColor = UIColor(red: 255/255.0, green: 115/255.0, blue: 114/255.0, alpha: 1);
         
+        var loginned:Bool = NSUserDefaults.standardUserDefaults().boolForKey("userDidLogin");
+        if (loginned)
+        {
+            homeViewController = HomeViewController(nibName: "HomeViewController", bundle: nil);
+            var nav = UINavigationController(rootViewController: homeViewController);
+             window?.rootViewController = nav;
 
+        }
+        else
+        {
+            loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil);
+            
+            var nav = UINavigationController(rootViewController: loginViewController);
+            window?.rootViewController = nav;
+        }
+        
         
         return true
     }

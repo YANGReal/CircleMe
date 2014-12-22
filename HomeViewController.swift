@@ -22,7 +22,13 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         self.title = "什么仇"
         self.navigationController?.navigationBarHidden = false;
         let identifier:String = "cell"
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: identifier);
+        
+        
+        //tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: identifier);
+        var nibName = UINib(nibName: "HomeListCell", bundle: nil);
+        tableView.registerNib(nibName, forCellReuseIdentifier: identifier);
+        
+        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: self, action:nil);
         // Do any additional setup after loading the view.
         self.automaticallyAdjustsScrollViewInsets = false;
@@ -65,12 +71,18 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let identifier:String = "cell";
-        var cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as UITableViewCell;
-        cell.textLabel.text = "这是第\(indexPath.row+1)个单元格"
+    
+        var cell:HomeListCell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as HomeListCell;
+        //cell.textLabel.text = "这是第\(indexPath.row+1)个单元格"
         return cell;
     }
     
-    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        var height = self.view.frame.size.height-30;
+        return height;
+        
+    }
 
     /*
     // MARK: - Navigation

@@ -37,6 +37,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonClicked(sender: AnyObject)
     {
         println("123");
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "userDidLogin");
         
         var homeVC = HomeViewController(nibName:"HomeViewController",bundle:nil);
        // self.presentViewController(homeVC, animated: true, completion: nil);
