@@ -39,7 +39,7 @@
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Tdo-FT-ebn">
-                    <rect key="frame" x="0.0" y="94" width="320" height="474"/>
+                    <rect key="frame" x="0.0" y="94" width="320" height="425"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="yu8-h9-gwi"/>
@@ -49,7 +49,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Tdo-FT-ebn" secondAttribute="bottom" id="IHc-ko-FYr"/>
+                <constraint firstAttribute="bottom" secondItem="Tdo-FT-ebn" secondAttribute="bottom" constant="49" id="IHc-ko-FYr"/>
                 <constraint firstAttribute="trailing" secondItem="14Z-Uy-m4K" secondAttribute="trailing" id="MTj-uI-o09"/>
                 <constraint firstItem="Tdo-FT-ebn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QkQ-Au-l91"/>
                 <constraint firstItem="14Z-Uy-m4K" firstAttribute="leading" secondItem="zw5-gk-QKq" secondAttribute="trailing" id="S7W-II-Biq"/>

@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var loginViewController:LoginViewController!
     var homeViewController:HomeViewController!;
+    var mainTabBarController:MainTabBarViewController!
+    var profileViewController:ProfileViewController!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -29,9 +31,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var loginned:Bool = NSUserDefaults.standardUserDefaults().boolForKey("userDidLogin");
         if (loginned)
         {
+            
+            mainTabBarController = MainTabBarViewController();
+            
+            profileViewController = ProfileViewController(nibName: "ProfileViewController", bundle: nil);
+            var nav2 = UINavigationController(rootViewController: profileViewController);
+            
             homeViewController = HomeViewController(nibName: "HomeViewController", bundle: nil);
-            var nav = UINavigationController(rootViewController: homeViewController);
-             window?.rootViewController = nav;
+            var nav1 = UINavigationController(rootViewController: homeViewController);
+            
+            mainTabBarController.viewControllers = [nav1,nav2];
+            window?.rootViewController = mainTabBarController;
 
         }
         else
