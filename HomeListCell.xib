@@ -67,6 +67,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="imgView" destination="awp-yh-sBA" id="r5j-3x-i8s"/>
                 <outlet property="slider" destination="Z75-z5-bJn" id="bAJ-Hg-P3n"/>
             </connections>
             <point key="canvasLocation" x="184" y="184"/>

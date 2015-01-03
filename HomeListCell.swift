@@ -11,7 +11,8 @@ import UIKit
 class HomeListCell: UITableViewCell {
 
     @IBOutlet var slider:UISlider!;
-    
+    @IBOutlet var imgView:UIImageView!;
+    var userImage:UIImage?;
     
     override func awakeFromNib()
     {
@@ -24,7 +25,15 @@ class HomeListCell: UITableViewCell {
         slider.setThumbImage(thumbImage, forState: UIControlState.Normal);
         
     }
-
+    
+   override func layoutSubviews()
+   {
+        super.layoutSubviews();
+        imgView.image = userImage;
+    
+   }
+    
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

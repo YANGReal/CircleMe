@@ -13,6 +13,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     @IBOutlet var tableView:UITableView!
     @IBOutlet weak var friendsButton: UIButton!
     @IBOutlet weak var hotButton: UIButton!
+    var dataArray:NSMutableArray = NSMutableArray();
     let pinkColor:UIColor = UIColor(red: 255/255.0, green: 115/255.0, blue: 114/255.0, alpha: 1);
     let whiteColor:UIColor = UIColor.whiteColor();
     
@@ -28,17 +29,33 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         var nibName = UINib(nibName: "HomeListCell", bundle: nil);
         tableView.registerNib(nibName, forCellReuseIdentifier: identifier);
         
-        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: self, action:nil);
         // Do any additional setup after loading the view.
         self.automaticallyAdjustsScrollViewInsets = false;
-        
         friendsButton.backgroundColor = pinkColor
         hotButton.backgroundColor = whiteColor;
+        initData();
         
-    
-    }
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidChooseImage:", name: "userDidChooseImage", object: nil);
 
+    }
+    
+    func initData()
+    {
+        var img1 = UIImage(named: "placeHolder.jpg");
+        dataArray.addObject(img1!);
+        dataArray.addObject(img1!);
+        dataArray.addObject(img1!);
+        
+    }
+    
+    func userDidChooseImage(notification:NSNotification)
+    {
+        var image = notification.object as UIImage;
+        dataArray.insertObject(image, atIndex: 0);
+        tableView.reloadData();
+    }
+    
     
     @IBAction func friendsButtonClicked(sender: AnyObject)
     {
@@ -53,7 +70,6 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         hotButton.backgroundColor = pinkColor;
         friendsButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal);
         hotButton.setTitleColor(whiteColor, forState: UIControlState.Normal);
-
     }
     
     
@@ -64,7 +80,8 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     
   
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3;
+        
+        return dataArray.count;
     }
     
     
@@ -74,6 +91,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     
         var cell:HomeListCell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as HomeListCell;
         //cell.textLabel.text = "这是第\(indexPath.row+1)个单元格"
+        cell.userImage = dataArray[indexPath.row] as? UIImage;
         return cell;
     }
     

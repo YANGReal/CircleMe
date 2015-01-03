@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainTabBarViewController: UITabBarController {
+class MainTabBarViewController: UITabBarController,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate  {
 
     var myTabBar:UIView!
     var homeButton:UIButton!
@@ -70,7 +70,9 @@ class MainTabBarViewController: UITabBarController {
     
     func choosePicture(sender:UIButton)
     {
-        
+        var actionSheet = UIActionSheet(title: "选择照片", delegate: nil, cancelButtonTitle: "取消", destructiveButtonTitle: nil, otherButtonTitles: "相册", "拍照");
+        actionSheet.delegate = self;
+        actionSheet.showInView(self.view);
     }
     
     func profileButtonClicked(sender:UIButton)
@@ -80,6 +82,41 @@ class MainTabBarViewController: UITabBarController {
         profileButton.selected = true;
         self.selectedIndex = 1;
     }
+    
+    
+    
+    func actionSheet(actionSheet: UIActionSheet, didDismissWithButtonIndex buttonIndex: Int) {
+        print(buttonIndex);
+        if (buttonIndex == 1)//从iOS系统选取图片
+        {
+            var imagePickVC = UIImagePickerController();
+            imagePickVC.delegate = self;
+            imagePickVC.sourceType = UIImagePickerControllerSourceType.PhotoLibrary;
+            self.presentViewController(imagePickVC, animated: true, completion: nil);
+        }
+        else if (buttonIndex == 2)//留给你的作业,用拍照的方式获取图片.
+        {
+            
+        }
+    }
+    
+     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
+    {
+       // print(info);
+        var image:UIImage = info[UIImagePickerControllerOriginalImage] as UIImage;
+        print(image);
+        picker .dismissViewControllerAnimated(true, completion: nil);
+      NSNotificationCenter.defaultCenter().postNotificationName("userDidChooseImage", object: image);
+        
+    }
+     func imagePickerControllerDidCancel(picker: UIImagePickerController)
+     {
+      
+        picker .dismissViewControllerAnimated(true, completion: nil);
+        
+     }
+    
+    
     
 
     override func didReceiveMemoryWarning() {
